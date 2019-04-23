@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ApplicationUser>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<li><a asp-area="" asp-controller="Account" asp-action="Register">Dodaj nowego użytkownika</a></li>
+
+@if (ViewBag.UserDeleteError != null)
+{<p>@ViewBag.UserDeleteError</p>}
+
+@if (Model.Count() == 0)
+{
+    <p>Brak kont użytkowników</p>
+}
+else
+{
+    <table class="table">
+        @foreach (ApplicationUser users in Model)
+        {
+            <form asp-controller="AdminPanel" asp-action="Delete" method="post">
+                <tr>
+                    <td> @users.UserName </td>
+                    <td> @users.Id </td>
+                    <input type="hidden" name="id" value="@users.Id">
+                    <td> <input type="submit" value="Usuń" /> </td>
+                </tr>
+            </form>
+        }
+    </table>
+}

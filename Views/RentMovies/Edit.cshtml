@@ -1,0 +1,56 @@
+﻿@model Movies.Models.RentMovie
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>RentMovie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RentMovieId" />
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsRent" /> @Html.DisplayNameFor(model => model.IsRent)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="RentDate" class="control-label"></label>
+                <input asp-for="RentDate" class="form-control" />
+                <span asp-validation-for="RentDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RentDays" class="control-label"></label>
+                <input asp-for="RentDays" class="form-control" />
+                <span asp-validation-for="RentDays" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DayRentPrice" class="control-label"></label>
+                <input asp-for="DayRentPrice" class="form-control" />
+                <span asp-validation-for="DayRentPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieId" class="control-label"></label>
+                <select asp-for="MovieId" class="form-control" asp-items="ViewBag.MovieId"></select>
+                <span asp-validation-for="MovieId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

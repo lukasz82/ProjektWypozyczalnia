@@ -1,0 +1,53 @@
+﻿@model Movies.Models.RentMovie
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Wypożycz film</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsRent" /> @Html.DisplayNameFor(model => model.IsRent)
+                    </label>
+                </div>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="RentDate" class="control-label">Data wypożyczenia</label>
+                <input asp-for="RentDate" class="form-control" />
+                <span asp-validation-for="RentDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RentDays" class="control-label">Ilość dni</label>
+                <input asp-for="RentDays" class="form-control" />
+                <span asp-validation-for="RentDays" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DayRentPrice" class="control-label">Cena za dzień</label>
+                <input asp-for="DayRentPrice" class="form-control" />
+                <span asp-validation-for="DayRentPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieId" class="control-label">Film</label>
+                <select asp-for="MovieId" class ="form-control" asp-items="ViewBag.MovieId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Wypożycz" class="btn btn-default"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

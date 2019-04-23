@@ -1,0 +1,48 @@
+﻿@model Movies.Models.Movie
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Movie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductionDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductionDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MovieDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MovieDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Author.AuthorId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Genres)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Genres.GenreId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.MovieId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

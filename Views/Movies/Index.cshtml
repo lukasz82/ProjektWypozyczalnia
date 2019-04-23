@@ -1,0 +1,150 @@
+﻿@model IEnumerable<Movies.Models.Movie>
+@{
+    ViewData["Title"] = "Index";
+}
+<link href="/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<h2>Index</h2>
+
+
+<a asp-area="" asp-controller="Authors" asp-action="Index">Baza Reżyserów</a>
+<a asp-area="" asp-controller="Genres" asp-action="Index">Baza Gatunków</a>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<p>@ViewBag.productionDate</p>
+<div class="row">
+    <div class="col-sm-3">
+        <form asp-controller="Movies" asp-action="Index">
+            <p>
+                Tytuł: <input type="text" name="searchMovieName">
+                <input type="submit" value="Wyszukaj" />
+            </p>
+        </form>
+    </div>
+    <div class="col-sm-3">
+        <form asp-controller="Movies" asp-action="SearchByDate">
+            <p>
+                Data produkcji od: <input type="date" id="start" name="searchByDateFrom"
+                                          value=@ViewBag.Today
+                                          min="1900-01-01" max="2020-12-31">
+                Data produkcji do: <input type="date" id="start" name="searchByDateTo"
+                                          value=@ViewBag.Today
+                                          min="1900-01-01" max="2020-12-31">
+                <input type="submit" value="Wyszukaj" />
+            </p>
+        </form>
+    </div>
+    <div class="col-sm-3">
+        <form asp-controller="Movies" asp-action="Index">
+            <p>
+                Gatunek: <input type="text" name="searchGenreName">
+                <input type="submit" value="Wyszukaj" />
+            </p>
+        </form>
+    </div>
+    <div class="col-sm-3">
+        <form asp-controller="Movies" asp-action="Index">
+            <p>
+                Reżyser: <input type="text" name="searchAuthorName">
+                <input type="submit" value="Wyszukaj" />
+            </p>
+        </form>
+    </div>
+</div>
+
+<p>@ViewBag.serach</p>
+
+<style type="text/css">
+
+    .fakeLink {
+        background: none !important;
+        color: inherit;
+        border: none;
+        padding: 0 !important;
+        font: inherit;
+        /*border is optional*/
+        border-bottom: 0px solid #444;
+        cursor: pointer;
+    }
+
+        .fakelink:hover {
+            text-decoration: none;
+        }
+</style>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.ProductionDate)*@
+                <form asp-controller="Movies" asp-action="Index">
+                    <p>
+                        @if (ViewBag.productionDate == null)
+                        {
+                            <input type="hidden" id="productionDateId" name="productionDate" value="true">
+                        }
+                        else if (ViewBag.productionDate == false)
+                        {
+                            <input type="hidden" id="productionDateId" name="productionDate" value="false">
+                        }
+                        else if (ViewBag.productionDate == true)
+                        {
+                            <input type="hidden" id="productionDateId" name="productionDate" value="true">
+                        }
+                        <input type="submit" value="Data produkcji" class="fakeLink" />
+                    </p>
+                </form>
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genres)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductionDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MovieDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genres.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.MovieId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.MovieId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.MovieId">Delete</a>
+                </td>
+            </tr>
+        }
+        <h2>List of Products</h2>
+        @for (int i = 0; i < ViewBag.pages; i++)
+        {
+            <form asp-controller="Movies" asp-action="Index">
+                <input type="hidden" id="productionDateId" name="productionDate" value="true">
+                <input type="submit" value=@i class="fakeLink" />
+            </form>
+        }
+        <p>@ViewBag.pages</p>
+
+    </tbody>
+</table>

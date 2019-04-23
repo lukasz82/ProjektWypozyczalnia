@@ -1,0 +1,12 @@
+E:\23_03_19\PracaGrupowaFilmy\Movies\Movies\bin\Debug\netcoreapp2.1\Movies.deps.json
+E:\23_03_19\PracaGrupowaFilmy\Movies\Movies\bin\Debug\netcoreapp2.1\Movies.runtimeconfig.json
+E:\23_03_19\PracaGrupowaFilmy\Movies\Movies\bin\Debug\netcoreapp2.1\Movies.runtimeconfig.dev.json
+E:\23_03_19\PracaGrupowaFilmy\Movies\Movies\bin\Debug\netcoreapp2.1\Movies.dll
+E:\23_03_19\PracaGrupowaFilmy\Movies\Movies\bin\Debug\netcoreapp2.1\Movies.pdb
+E:\23_03_19\PracaGrupowaFilmy\Movies\Movies\obj\Debug\netcoreapp2.1\Movies.csprojAssemblyReference.cache
+E:\23_03_19\PracaGrupowaFilmy\Movies\Movies\obj\Debug\netcoreapp2.1\Movies.csproj.CoreCompileInputs.cache
+E:\23_03_19\PracaGrupowaFilmy\Movies\Movies\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+E:\23_03_19\PracaGrupowaFilmy\Movies\Movies\obj\Debug\netcoreapp2.1\Movies.AssemblyInfoInputs.cache
+E:\23_03_19\PracaGrupowaFilmy\Movies\Movies\obj\Debug\netcoreapp2.1\Movies.AssemblyInfo.cs
+E:\23_03_19\PracaGrupowaFilmy\Movies\Movies\obj\Debug\netcoreapp2.1\Movies.dll
+E:\23_03_19\PracaGrupowaFilmy\Movies\Movies\obj\Debug\netcoreapp2.1\Movies.pdb

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Movies.Models.RentMovie>
+@{
+    ViewData["Title"] = "ShowRentedMovies";
+}
+
+<h2>ShowRentedMovies</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IsRent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RentDays)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DayRentPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsRent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RentDays)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DayRentPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Movie.MovieId)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.RentMovieId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.RentMovieId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.RentMovieId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

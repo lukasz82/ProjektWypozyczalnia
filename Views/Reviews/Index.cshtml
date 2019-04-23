@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Movies.Models.Reviews>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Review)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rate)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Review)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Movie.MovieId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ReviewId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ReviewId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ReviewId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
